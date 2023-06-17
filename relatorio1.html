@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/relatorio1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Relatório 1</title>
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
+        <h1>Relatório 1</h1>
+        <h2>Processamento de Vídeo 2023.2</h2>
+        
+    </header>
+
+    <main>
+        <h3>Objetivos</h3>
+        <ul>
+            <li>Iniciar os trabalhos no Ubuntu com o OpenCV</li>
+            <li>Conhecer os comandos para visualizar e gravar imagens e videos</li>
+            <li>Gravar um Vídeo e mostrá-lo no relatório</li>
+        </ul>
+
+        <h3>PARTE 1</h3>
+        <p>Foi realizada a instalação do OpenCV e do Miniconda3 no ambiente Ubuntu e foi realizada a execução teste dos arquivos disponibilizados 
+            pelo professor.</p>
+        <img class="teste1" src="assets/img/teste1.png" alt="teste 1">
+
+        <h3>PARTE 2</h3>
+        <P>Foram realizadas quatro tipo de operações, através dos programas e arquivos fornecidos.</P>
+            <p>A) Por que a janela aberta não mostra a imagem colorida?</p>
+            <p>Resposta: porque o algoritmo converte a imagem original em um png em escala gray e mostra ela em seguida, podendo ser salva 
+                pressionando a tecla S.</p>
+            <img src="assets/img/parte2a.png" alt="">
+            
+            <p>B) modifique o programa para que as imagens sejam exibidas mais
+                rápidamente e depois para que sejam exibidas mais lentamente. Responda
+                qual a explicação de alteração de velocidade de exibição, e apresente suas
+                soluções detalhadamente.</p>
+            <p>Resposta: para alterar a velocidade, basta aumentar o valor do divisor na linha 15, fazendo com que o programa espere menos tempo 
+                para passar para o próximo frame. Para diminuir a velocidade, basta diminuir o valor do divisor. A função time.sleep faz com que o 
+                programa aguarde uma determinada quantidade de tempo antes de passar para a próxima linha, que no caso é a linha 12, que captura os 
+                frames do vídeo.</p>
+                <img src="assets/img/parte2b.png" alt="">
+            
+            <p>C) modifique o programa para que uma imagem da câmera seja salva
+                num arquivo “foto1.png” no momento em que for clicada a tecla ‘x’ no
+                teclado. Apresente o resultado e sua solução detalhadamente.</p>
+            <p>Resposta: para que o arquivo gerado fosse salvo, foi utilizado parte do programa de L1_1_img.py, mais especificamente os comandos waitKey 
+                para que o programa registrasse a tecla apertada (X (ignorar comentários no programa)) e o comando imwrite, que salva o frame no arquivo
+                foto1.png.
+            </p>
+            <img src="assets/img/parte2c.png" alt="">
+           
+            <p>D) modifique o programa para que as imagens gravadas estejam
+                “normais” no arquivo de video salvo, e apresentem uma velocidade de
+                exibição adequada. Apresente o resultado e sua solução detalhadamente.</p>
+            <p>Resposta: para inverter a imagem gerada, bastou alterar o valor de 0 para 1 da linha "frame = cv.flip(frame,1)". Para alterar a velocidade 
+                de gravação, basta alterar o valor fps da linha "fps = 40", quanto maior o valor, maior a velocidade de gravação.
+            </p>
+            <img src="assets/img/parte2d.png" alt="">
+
+            <h3>PARTE 3</h3>
+            <p>A) Foto com todos os integrantes do grupo, tirada usando OpenCV.</p>
+            <img src="assets/img/fotogrupo.png" alt="">
+            <p>B) Montagem dos integrantes com os avatares.</p>
+            <img src="assets/img/fotogrupoeditado.png" alt="">
+            <p>C) Filmem e editem DOIS vídeos com pessoas e DOIS videos com um objeto. A edição foi realizada utilizando o arquivo do item D da 
+                parte 2.
+            </p>
+            <div class="videos">
+                <video controls class="video" loop><source src="assets/videos/objlento.mp4" type="video/mp4"></video>
+                <video controls class="video" loop><source src="assets/videos/objrapido.mp4" type="video/mp4"></video>
+                <video controls class="video" loop><source src="assets/videos/pessoalento.mp4" type="video/mp4"></video>
+                <video controls class="video" loop><source src="assets/videos/pessoarapido.mp4" type="video/mp4"></video>
+            </div>
+    </main>
+
+    <footer>
+        <p>Página do grupo composto por Lucas Medeiros e Erikson Jose para a disciplina de processamento de video 2023.2</p>
+        <p>Professor: Celso S Kurashima</p>
+    </footer>
+</body>
+
+</html>
