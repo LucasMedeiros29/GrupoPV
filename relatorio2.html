@@ -22,41 +22,173 @@
     </header>
 
     <main>
-        <h3>Objetivos</h3>
-        <ul>
-            <li>Filtragem de imagens</li>
-            <li>Estudar a teoria e implementar os códigos deste tutorial para o seu 	entendimento.</li>
-            <li>Aplicar os conhecimentos de filtragem nas fotos obtidas na parte 3 do relatório 1</li>
-        </ul>
+        <h3>Introdução</h3>
+			<p>O experimento a seguir busca estudar a aplicação da filtragem e processamento de imagens através de linguagem de programação. 
+                Os filtros utilizados nesse experimento serão aqueles disponíveis pela biblioteca do OpenCV, sendo eles o filtro 2D Convolution, o 
+                Averaging blur, o Gaussian blur, o Median Blur e o Bilateral Filter, todos na resolução 5x5. 
+            </p>
+			<h4>Objetivos</h4>
+			<ul>
+				<li>Filtragem de imagens</li>
+                <li>Estudar a teoria e implementar os códigos deste tutorial para o seu 	entendimento.</li>
+                <li>Aplicar os conhecimentos de filtragem nas fotos obtidas na parte 3 do relatório 1</li>
+			</ul>
         
-        <h3>Procedimento</h3>
+    	<h3>Fundamentos básicos</h3>
+			<p>O processamento de imagens , muitas das vezes, é a primeira etapa em uma aplicação de visão computacional, consistindo da definição 
+                de uma nova imagem a partir de uma outra já existente. Tais imagens podem ser descritas como funções e matrizes de valores inteiros, onde 
+                programas podem ser criados para alterar esses valores.
+            </p>
+            <p>O processamento de imagem é muito útil, por exemplo, para a remoção ou diminuição de ruídos, sendo os mais comuns destes o Salt and pepper (pontos brancos e pretos na imagem),
+                 o impulse (pontos brancos na imagem) e o gaussiano (variações de intensidade).
+            </p>
+            <p>Para reduzir os ruídos, alguns tipos de filtros podem ser utilizados, como o filtro de média, que realiza a média dos valores da matriz que 
+                compõe uma imagem, o filtro de correlação cruzada, que implementa um Kernel à imagem que se deseja filtrar que permite índices negativos, 
+                o filtro Gaussian, que dá menos peso aos pixels distantes do centro da janela, e o filtro de mediana, onde o Kernel é invertido horizontalmente e 
+                verticalmente antes de ser aplicado.
+            </p>
+            <p>Cada filtro se mostra mais adequada para determinado tipo de ruído.</p>
+    	
+    	<h3>Materiais e métodos</h3>
+			<ul>
+				<li>Ubuntu</li>
+				<li>Miniconda</li>
+				<li>Python</li>
+				<li>OpenCV</li>
+			</ul>
+			<h4>Parte 1</h4>
+			<p>A partir das imagens obtidas na parte 3 do relatório 1, foram aplicados os filtros descritos abaixo utilizando as funções disponíveis 
+                no site https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html. Também foi utilizado o comando img = cv.cvtColor(img, cv.COLOR_BGR2RGB) para 
+                ajustar a coloração na saída das imagens.
+            </p>
 
-        <h3>Resultados</h3>
-        <p>Realize cada um dos experimentos de filtragem do tutorial, utilizando suas próprias imagens obtidas no Lab1 - parte 3. Salve os arquivos de imagem filtrada através do próprio programa.</p>
-        <p>Imagens originais obtidas na parte 3 do relatório 1:</p>
-        <img class="teste1" src="assets/img/lab2/printgrupo.png" alt="teste 1">
-	<img class="teste1" src="assets/img/lab2/fotogrupoeditado.png" alt="teste 1">
+            <h4>2D Convolution</h4>
+            <p>Aqui foi utilizado o primeiro algoritmo disponibilizado pelo site do OpenCV, onde os parâmetros do imread foram modificados para receber 
+                a imagem desejada e foi acrescentada a função waitKey para que o programa registrasse a tecla pressionada e imWrite para salvar a imagem 
+                filtrada.
+            </p>
+            <img class="teste1" src="assets/img/lab2/print1 filtering.png" alt="teste 1">
+
+            <h4>Averaging blur</h4>
+            <p>Aqui foi utilizado o segundo algoritmo disponibilizado pelo site do OpenCV, onde os parâmetros do imread foram modificados para receber 
+                a imagem desejada e foi acrescentada a função waitKey para que o programa registrasse a tecla pressionada e imWrite para salvar a imagem 
+                filtrada, assim como no filtro anterior.</p>
+            <img class="teste1" src="assets/img/lab2/print1 smoothing.png" alt="teste 1">
+            
+            <h4>Bilateral Filter</h4>
+            <p>Aqui foi utilizada a função cv.bilateralFilter no lugar da função cv.blur do algoritmo do Averaging blur (já modificado), além disso, também foi alterado 
+                o nome da saída da imagem na função imWrite.
+            </p>
+            <img class="teste1" src="assets/img/lab2/print1 bilateral.png" alt="teste 1">
+            
+            <h4>Gaussian blur</h4>
+            <p>Aqui foi utilizada a função cv.GlaussianBlur no lugar da função cv.blur do algoritmo do Averaging blur (já modificado), além disso, também foi alterado 
+                o nome da saída da imagem na função imWrite.</p>
+            <img class="teste1" src="assets/img/lab2/print1 gaussian.png" alt="teste 1">
+            
+            <h4>Median Blur</h4>
+            <p>Aqui foi utilizada a função cv.medianBlur no lugar da função cv.blur do algoritmo do Averaging blur (já modificado), além disso, também foi alterado 
+                o nome da saída da imagem na função imWrite e o "blur" da função imshow foi trocado por "median".</p>
+            <img class="teste1" src="assets/img/lab2/print1 median.png" alt="teste 1">
+            
+				
+			<h4>Parte 2</h4>
+			<h4>Original</h4>
+            <p>Aqui foi utilizada o algoritmo do relatório 1 (parte 2 - C) para salvar a imagem obtida.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/print2 original.png" alt="teste 1">
+
+            <h4>2D Convolution</h4>
+            <p>Aqui foi adicionada a variavel Kernel e a dst com a função filter2D, sendo necessário alterar os parâmetros da linha de baixo 
+                para receber a variável dst. Além disso, foi acrescentado o "from matplotlib import pyplot as plt" para importar as funções de filtro.
+            </p>
+            <img class="teste1" src="assets/img/lab2/parte 2/print2 filtering.png" alt="teste 1">
+			
+            <h4>Averaging blur</h4>
+            <p>Aqui foi removida a variável Kernel e acrescentada a função blur, sendo necessário alterar os parâmetros do imshow para receber blur.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/print2 smoothing.png" alt="teste 1">
+
+            <h4>Bilateral Filter</h4>
+            <p>Aqui foi acrescentada a função bilateralFilter, sendo necessário alterar os parâmetros do imshow para receber blur.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/print2 bilateral.png" alt="teste 1">
+
+            <h4>Gaussian blur</h4>
+            <p>Aqui foi acrescentada a função GaussianBlur, sendo necessário alterar os parâmetros do imshow para receber blur.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/print2 gaussian.png" alt="teste 1">
+
+            <h4>Median Blur</h4>
+            <p>Aqui foi acrescentada a função medianBlur, sendo necessário alterar os parâmetros do imshow para receber median.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/print2 median.png" alt="teste 1">
+
+		<h3>Resultados e análise</h3>
+			<h4>PARTE 1</h4>
+			<p>Imagens originais obtidas na parte 3 do relatório 1. Pode se notar os ruídos ocasionados pela baixa qualidade da câmera, provocando a falta 
+                de nitidez.
+            </p>
+            <img class="teste1" src="assets/img/lab2/printgrupo.png" alt="teste 1">
+	        <img class="teste1" src="assets/img/lab2/fotogrupoeditado.png" alt="teste 1">
 	
-	<h3>Filtro2d</h3>
-	<img class="teste1" src="assets/img/lab2/Filtering5x5.png" alt="teste 1">
-	<img class="teste1" src="assets/img/lab2/AvatarFiltering5x5.png" alt="teste 1">
-	
-	<h3>Filtro Bilateral</h3>
-	<img class="teste1" src="assets/img/lab2/BilateralFiltering5x5.png" alt="teste 1">
-	<img class="teste1" src="assets/img/lab2/AvatarBilateralFiltering5x5.png" alt="teste 1">
-	
-	<h3>Filtro Glaussiano</h3>
-	<img class="teste1" src="assets/img/lab2/GaussianBlurring5x5.png" alt="teste 1">
-	<img class="teste1" src="assets/img/lab2/AvatarGaussianBlurring5x5.png" alt="teste 1">
-	
-	<h3>Filtro Mediano</h3>
-	<img class="teste1" src="assets/img/lab2/MedianBlurring5x5.png" alt="teste 1">
-	<img class="teste1" src="assets/img/lab2/AvatarMedianBlurring5x5.png" alt="teste 1">
-	
-	<h3>Filtro Smoothing</h3>
-        <img class="teste1" src="assets/img/lab2/Smoothing5x5.png" alt="teste 1">
-	<img class="teste1" src="assets/img/lab2/AvatarSmoothing5x5.png" alt="teste 1">
-	
+            <h4>2D Convolution</h4>
+            <p>Utilizando o 2D Convolution nota-se que a imagem perdeu ainda mais definição, o que também é perceptivel no avatar direito, que ante estava 
+                muito mais nítido.
+            </p>
+            <img class="teste1" src="assets/img/lab2/Filtering5x5.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab2/AvatarFiltering5x5.png" alt="teste 1">
+            
+            <h4>Bilateral Filter</h4>
+            <p>Utilizando o Bilateral Filter nota-se que as imagens apresentam muito menos granulação, embora agora não apresentem muitos detalhes, o que 
+                é ruim para imagens complexas, como o rosto humano, mas bom para imagens com menos detalhes, como desenhos.
+            </p>
+            <img class="teste1" src="assets/img/lab2/BilateralFiltering5x5.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab2/AvatarBilateralFiltering5x5.png" alt="teste 1">
+            
+            <h4>Gaussian blur</h4>
+            <p>Assim como o filtro de 2D Convolution, o Gaussian não apresentou um bom resultado, onde ambas as imagens perderam mais definição.</p>
+            <img class="teste1" src="assets/img/lab2/GaussianBlurring5x5.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab2/AvatarGaussianBlurring5x5.png" alt="teste 1">
+            
+            <h4>Median Blur</h4>
+            <p>O resultado se assemelha ao Bilateral, embora ainda possa de notar um pouco de embaçamento e perda de definição.</p>
+            <img class="teste1" src="assets/img/lab2/MedianBlurring5x5.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab2/AvatarMedianBlurring5x5.png" alt="teste 1">
+            
+            <h4>Averaging blur</h4>
+            <p>Este talvez tenha sido o filtro que apresentou pior resultado, embaçando muito as imagens e causando muita perda de qualidade em ambas.</p>
+            <img class="teste1" src="assets/img/lab2/Smoothing5x5.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab2/AvatarSmoothing5x5.png" alt="teste 1">
+
+			<h4>PARTE 2</h4>
+
+            <h4>Original</h4>
+            <p>Imagem original sem nenhum filtro.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/original.png" alt="teste 1">
+
+            <h4>2D Convolution</h4>
+            <p>É possível notar uma pequena melhora na definição da imagem.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/filtering.png" alt="teste 1">
+			
+            <h4>Averaging blur</h4>
+            <p>É possível notar que a imagem perdeu definição.</p>
+            <img class="teste1" src="assets/img/lab2/parte 2/Smoothing.png" alt="teste 1">
+
+            <h4>Bilateral Filter</h4>
+            <p>Diferentemente do que esperado devido à parte 1, o filtro bilateral aqui não suavizou a imagem </p>
+            <img class="teste1" src="assets/img/lab2/parte 2/bilateral.png" alt="teste 1">
+
+            <h4>Gaussian blur</h4>
+            <p></p>
+            <img class="teste1" src="assets/img/lab2/parte 2/Gaussiano.png" alt="teste 1">
+
+            <h4>Median Blur</h4>
+            <p></p>
+            <img class="teste1" src="assets/img/lab2/parte 2/median.png" alt="teste 1">
+			
+
+		<h3>Conclusões e Comentários finais</h3>
+		<p>Nesse experimento foram arbodados conceitos de filtragem e processamento de imagens onde foram utilizados cinco filtros difentes 
+            disponíveis na biblioteca do OpenCV. Foi notável a diferença nas imagens na parte 1, porém essas diferenças não foram tão expressíveis 
+            na parte 2, provavelmente devido ao fato de ser um pré-processamento que é parcialmente perdido ao salvar a imagem. Mesmos as alterações sendo 
+            notáveis na parte 1, elas não melhoraram a qualidade da imagem original como esperado.
+        </p>
     </main>
 
     <footer>
