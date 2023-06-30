@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/relatorio1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Relatório 3</title>
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
+        <h1>Relatório 3</h1>
+        <h2>Processamento de Vídeo 2023.2</h2>
+        
+    </header>
+
+    <main>
+        <h3>Introdução</h3>
+			<p>O experimento a seguir busca estudar os princípios e efeitos da conversão de cores e da aplicação de máscaras e detecção de cores. Para tal, 
+                será utilizado uma webcam e comandos do OpenCV. 
+            </p>
+			<h4>Objetivos</h4>
+			<ul>
+				<li>Compreender o processo de conversão de cores em computação</li>
+                <li>Aplicar o conhecimento na prática com OpenCV</li>
+                <li>Experimentar outras funcionalidades</li>
+			</ul>
+        
+    	<h3>Fundamentos básicos</h3>
+			<p>A cor é um fenômeno percebido e não uma dimensão física como o comprimento ou a temperatura, sendo resultado da nossa representação mental 
+                sobre comprimentos de onda capturados pelos nossos olhos que são refletidos por determinadas superfícies.
+            </p>
+            <p>
+                O OpenCV utiliza a função COLOR_BGR2HSV para converter uma imagem BGR para HSV, o que torna a representação de cores mais fácil e, 
+                consequentemente, torna a extração de cores mais fácil. Os passos para o rastreamento de cores em vídeo são: converter cada frame do 
+                vídeo para HSV, colocamos o limite de detecção de cores para a cor desejada e extraímos essa cor dos frames do vídeo.
+                A máscara em si, como descrita nos algoritmos abaixo, apenas detecta a cor, tornando-a branca e destacando-a do resto das cores, que se 
+                tornam pretas, é necessário então unir os frames originais à mascára para que a cor azul fique presente.
+            </p>
+    
+    	<h3>Materiais e métodos</h3>
+			<ul>
+				<li>Ubuntu</li>
+				<li>Miniconda</li>
+				<li>Python</li>
+				<li>OpenCV</li>
+                <li>Webcam</li>
+			</ul>
+			<h4>Parte 1 (questão 2)</h4>
+			<p>A partir do website <a href="https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html">https://docs.opencv.org/4.x/df/d9d/
+                tutorial_py_colorspaces.html</a> disponibilizado pelo professor, foram utilizados os códigos presentes nele para a realização das 
+                questões solicitadas.
+            </p>
+
+            <h4>A)</h4>
+            <p>Aqui foi utilizado o algoritmo disponibilizado pelo site do OpenCV, onde também foi utilizado parte do código do relatório 1 para 
+                salvar as imagens ao clique de uma tecla com o comando imwrite.
+            </p>
+            <img class="teste1" src="assets/img/lab3/a_metodos.png" alt="teste 1">
+
+            <h4>B)</h4>
+            <p>Aqui o algoritmo anterior foi modificado para que o filtro Gaussiano do experimento anterior fosse aplicado à imagem resultante. Foi 
+                alterado o comando bitwise para receber os parâmetros do filtro Gaussiano.
+            </p>
+            <img class="teste1" src="assets/img/lab3/b_metodos.png" alt="teste 1">
+            
+            <h4>C)</h4>
+            <p>Aqui foi utilizado parte do algoritmo do item D do relatório 1 para realizar a captura de quatro vídeos contendo os frames originais, 
+                os frames com o filtro Gaussiano, os frames com a máscara e os frames resultantes. Basicamente foram unidos os algoritmos do item B 
+                desse relatorio ao do item D do relatorio 1, aplicando pequenas modificações de parametros.
+            </p>
+            <img class="teste1" src="assets/img/lab3/c_metodos.png" alt="teste 1">
+            
+				
+			<h4>Parte 2 (questão 3)</h4>
+            <p></p>
+            <img class="teste1" src="" alt="faltando">
+
+
+		<h3>Resultados e análise</h3>
+			<h4>Parte 1 (questão 2)</h4>
+			<p>
+            </p>
+            
+            <h4>A)</h4>
+            <p>Assim como esperado, o algoritmo retornou três imagems, uma contendo os frames originais, outra contendo a máscara de detecção de cor e outra 
+                contendo a união da máscara com os frames originais.
+            </p>
+            <img class="teste1" src="assets/img/lab3/" alt="teste 1">
+
+            <h4>B)</h4>
+            <p>Aqui está o resultado da aplicação do filtro Gaussiano ao resultado final da etapa anterior, é possível notar uma pequena suavização dos 
+                detalhes, embora não muito significativa.
+            </p>
+            <img class="teste1" src="assets/img/lab3/b_resultados.png" alt="teste 1">
+            
+            <h4>C)</h4>
+            <p>Aqui são os resultados da gravação de vídeos utilizando os comandos estudados neste experimento. Primeiro temos os frames originais, 
+                em seguida os frames originais com o filtro Gaussiano, em seguida os frames da máscara e em seguida os frames resultantes da união.
+            </p>
+            <video controls class="video" loop><source src="assets/videos/lab 3/Original.mp4" type="video/mp4"></video>
+            <video controls class="video" loop><source src="assets/videos/lab 3/Gaussiano.mp4" type="video/mp4"></video>
+            <video controls class="video" loop><source src="assets/videos/lab 3/Mascara.mp4" type="video/mp4"></video>
+            <video controls class="video" loop><source src="assets/videos/lab 3/Resultante.mp4" type="video/mp4"></video>
+
+            <h4>Parte 2 (questão 3)</h4>
+            <p></p>
+            <img class="teste1" src="" alt="faltando">
+			
+
+		<h3>Conclusões e Comentários finais</h3>
+		<p>Neste laboratório foram estudados conceitos muito interessantes da aplicação da conversão de cores. A correção de cores é muito importante 
+            para a definição do tom que se deseja obter de um material áudio-visual, como em filmes ou fotografias. A detecção de cores pode ser 
+            utilizada para diversos fins, como detecção de resíduos ou de objetos de difícil detecção para o olho humano.
+        </p>
+    </main>
+
+    <footer>
+        <p>Página do grupo composto por Lucas Medeiros e Erikson Jose para a disciplina de processamento de video 2023.2</p>
+        <p>Professor: Celso S Kurashima</p>
+    </footer>
+</body>
+
+</html>
