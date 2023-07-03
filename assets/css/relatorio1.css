@@ -84,6 +84,12 @@ p {
 
 .teste2 {
 	max-width: 70%;
+	margin-bottom: 2vw;
+}
+
+.teste3 {
+	max-width: 20%;
+	margin-bottom: 2vw;
 }
 
 a {
