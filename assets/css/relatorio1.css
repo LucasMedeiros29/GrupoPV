@@ -82,6 +82,10 @@ p {
     margin-bottom: 2vw;
 }
 
+.teste2 {
+	max-width: 70%;
+}
+
 a {
 	text-decoration: none; /* retira o sublinhado do link */
 	color: black;
