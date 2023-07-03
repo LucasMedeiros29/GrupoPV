@@ -23,27 +23,28 @@
 
     <main>
         <h3>Introdução</h3>
-			<p>O experimento a seguir busca estudar os princípios e efeitos da conversão de cores e da aplicação de máscaras e detecção de cores. Para tal, 
-                será utilizado uma webcam e comandos do OpenCV. 
-            </p>
+			<p></p>
 			<h4>Objetivos</h4>
 			<ul>
-				<li>Compreender o processo de conversão de cores em computação</li>
+				<li>Compreender a teoria dos histogramas, da equalização e do limiar</li>
                 <li>Aplicar o conhecimento na prática com OpenCV</li>
                 <li>Experimentar outras funcionalidades</li>
 			</ul>
         
     	<h3>Fundamentos básicos</h3>
-			<p>A cor é um fenômeno percebido e não uma dimensão física como o comprimento ou a temperatura, sendo resultado da nossa representação mental 
-                sobre comprimentos de onda capturados pelos nossos olhos que são refletidos por determinadas superfícies.
+			<p>Um histograma é um gráfico que mostra a distribuição de intensidade de uma imagem, podendo, através dele, ter uma ideia sobre o 
+                contraste, o brilho e a distribuição de intensidade dessa imagem. Neste experimento, foi utilizado as funções do OpenCV para calcular 
+                o histograma das imagens.
             </p>
-            <p>
-                O OpenCV utiliza a função COLOR_BGR2HSV para converter uma imagem BGR para HSV, o que torna a representação de cores mais fácil e, 
-                consequentemente, torna a extração de cores mais fácil. Os passos para o rastreamento de cores em vídeo são: converter cada frame do 
-                vídeo para HSV, colocamos o limite de detecção de cores para a cor desejada e extraímos essa cor dos frames do vídeo.
-                A máscara em si, como descrita nos algoritmos abaixo, apenas detecta a cor, tornando-a branca e destacando-a do resto das cores, que se 
-                tornam pretas, é necessário então unir os frames originais à mascára para que a cor azul fique presente.
+            <p>Equalizar um histograma ou imagem significa melhorar sua distribuição em algum atributo, normalmente melhorando o contraste de uma 
+                imagem. Aqui também foram utilizados funções do OpenCV para realizar as equalizações das imagens e dos histogramas.
             </p>
+            <p>Por último, o limiar, ou Thresholding, é o método mais simples de segmentação de imagens. A partir de uma imagem em tons de cinza, 
+                o limiar pode ser usado para criar imagens binárias (imagens cujos pixels podem conter apenas dois valores: branco ou preto). Na 
+                limiarização simples, o mesmo valor de limiarização é aplicado igualmente para cada pixel da figura, se o valor do pixel for menor que o 
+                valor de limiarização, é atribuido o valor zero, se não, é atribuido o valor máximo. Se uma imagem tem diferentes condições de iluminação 
+                é recomendado utilizar a limiarização adaptativa, onde o valor de limiarização é determinado com base em uma pequena região ao seu redor. 
+                Já a limiarização Otsu determina o valor de limiarização automaticamente a partir do histograma da imagem.</p>
     
     	<h3>Materiais e métodos</h3>
 			<ul>
@@ -53,75 +54,102 @@
 				<li>OpenCV</li>
                 <li>Webcam</li>
 			</ul>
-			<h4>Parte 1 (questão 2)</h4>
-			<p>A partir do website <a href="https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html">https://docs.opencv.org/4.x/df/d9d/
-                tutorial_py_colorspaces.html</a> disponibilizado pelo professor, foram utilizados os códigos presentes nele para a realização das 
-                questões solicitadas.
-            </p>
 
-            <h4>A)</h4>
-            <p>Aqui foi utilizado o algoritmo disponibilizado pelo site do OpenCV, onde também foi utilizado parte do código do relatório 1 para 
-                salvar as imagens ao clique de uma tecla com o comando imwrite.
+            <h4>1)</h4>
+            <p>Aqui foi utilizado os comandos disponíveis em https://docs.opencv.org/4.x/d1/db7/tutorial_py_histogram_begins.html para o calculo do 
+                histograma e a plotagem do mesmo, sendo também utilizados as funções plt.savefig e cv.imwrite para salvar as imagens geradas dos plotes 
+                e das imagens equalizadas. Para o calculo da equailização foram utilizados os códigos contidos em 
+                https://docs.opencv.org/4.x/d5/daf/tutorial_py_histogram_equalization.html. Foi utilizado também o programa do relatório 1 para realizar a 
+                captura das fotos dos integrantes do grupo.
             </p>
-            <img class="teste1" src="assets/img/lab3/codigoa.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/codigo1.png" alt="teste 1">
 
-            <h4>B)</h4>
-            <p>Aqui o algoritmo anterior foi modificado para que o filtro Gaussiano do experimento anterior fosse aplicado à imagem resultante. Foi 
-                alterado o comando bitwise para receber os parâmetros do filtro Gaussiano.
-            </p>
-            <img class="teste1" src="assets/img/lab3/codigob.png" alt="teste 1">
+            <h4>2)</h4>
+            <p>Aqui o programa 1 foi modificado para realizar a leitura da webcam e, em tempo real, mostrar 3 janelas com os frames originais, 
+                em cinza e equalizados. Para tal foram utilizadas as funções cv.VideoCapture e as funções cv.imshow para cada variável (frame, gray e 
+                equalized), em seguida foi utilizada a função imwrite para salvar um frame dos vídeos para cada variável.</p>
+            <img class="teste1" src="assets/img/lab4/codigo2.png" alt="teste 1">
             
-            <h4>C)</h4>
-            <p>Aqui foi utilizado parte do algoritmo do item D do relatório 1 para realizar a captura de quatro vídeos contendo os frames originais, 
-                os frames com o filtro Gaussiano, os frames com a máscara e os frames resultantes. Basicamente foram unidos os algoritmos do item B 
-                desse relatorio ao do item D do relatorio 1, aplicando pequenas modificações de parametros.
-            </p>
-            <img class="teste1" src="assets/img/lab3/codigoc.png" alt="teste 1">
+            <h4>3)</h4>
+            <p>Aqui foram realizados 3 programas para cada processo de limiarização. As funções foram retiradas do site 
+                https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html. Também foram utilizadas as funções savefig para salvar as imagens plotadas por 
+            cada programa.</p>
+            <img class="teste1" src="assets/img/lab4/codigo3simp.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/codigo3adap.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/codigo3otsu.png" alt="teste 1">
             
-				
-			<h4>Parte 2 (questão 3)</h4>
-            <p></p>
-            <img class="teste1" src="assets/img/lab3/codigo3.png" alt="faltando">
-
+            <h4>4)</h4>
+            <p>Faltando</p>
+            <img class="teste1" src="" alt="teste 1">
 
 		<h3>Resultados e análise</h3>
-			<h4>Parte 1 (questão 2)</h4>
-			<p>
-            </p>
+            <h4>Imagens originais</h4>
+            <img class="teste1" src="assets/img/lab4/resultados/erikson.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/lucas.png" alt="teste 1">
             
-            <h4>A)</h4>
-            <p>Assim como esperado, o algoritmo retornou três imagems, uma contendo os frames originais, outra contendo a máscara de detecção de cor e outra 
-                contendo a união da máscara com os frames originais.
+            <h4>1)</h4>
+            <p>Para cada integrante do grupo foram salvas quatro imagens. É nítido o resultado da equalização das imagens, onde a quantidade de pixeis 
+                pretos foi drasticamente reduzida, aumentando o contraste das imagens e deixando alguns detalhes mais visíveis.
             </p>
-            <img class="teste1" src="assets/img/lab3/FrameOriginal.png" alt="teste 1">
-            <img class="teste1" src="assets/img/lab3/Mascara.png" alt="teste 1">
-            <img class="teste1" src="assets/img/lab3/Resultado.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/erikimagemcinza.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/erikimagemequalizada.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/erikhist.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/erikhistequalizado.png" alt="teste 1">
 
-            <h4>B)</h4>
-            <p>Aqui está o resultado da aplicação do filtro Gaussiano ao resultado final da etapa anterior, é possível notar uma pequena suavização dos 
-                detalhes, embora não muito significativa.
+            <img class="teste1" src="assets/img/lab4/resultados/imagemcinza.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/imagemequalizada.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/hist.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/histequalizado.png" alt="teste 1">
+
+            <h4>2)</h4>
+            <p>Aqui o resultado foi o mesmo do processo anterior, com a diferença de que, agora, é possível analizar em tempo real os resultados da equalização 
+                das imagens.
             </p>
-            <img class="teste1" src="assets/img/lab3/ResultadoGaus.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/normal2.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/gray2.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/equalized2.png" alt="teste 1">
+
+            <img class="teste1" src="assets/img/lab4/resultados/eriknormal2.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/erikgray2.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/erikequalized2.png" alt="teste 1">
+
+            <img class="teste1" src="assets/img/lab4/resultados/objnormal2.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/objgray2.png" alt="teste 1">
+            <img class="teste1" src="assets/img/lab4/resultados/objequalized2.png" alt="teste 1">
+
             
-            <h4>C)</h4>
-            <p>Aqui são os resultados da gravação de vídeos utilizando os comandos estudados neste experimento. Primeiro temos os frames originais, 
-                em seguida os frames originais com o filtro Gaussiano, em seguida os frames da máscara e em seguida os frames resultantes da união. 
-                (nota: O vídeo contendo somente a máscara não salvou corretamente, não sendo possível demonstrá-lo.)
+            <h4>3)</h4>
+            <p>Aqui foram realizados cinco tipos de linearização simples disponibilizados pela biblioteca do OpenCV. Podemos perceber que a binária 
+                é a mais expressiva, atribuindo a todos os pixels valores apenas 1 ou 0. A truncada deu um aspecto mais homogeneo à imagem, embora isso 
+                tenha reduzido a visibilidade. A toZero também é mais suave que a binária, sendo um meio termo entre as duas anteriores.
             </p>
-            <video controls class="video" loop><source src="assets/videos/lab 3/Original.mp4" type="video/mp4"></video>
-            <video controls class="video" loop><source src="assets/videos/lab 3/Gaussiano.mp4" type="video/mp4"></video>
-            <video controls class="video" loop><source src="assets/videos/lab 3/Mascara.mp4" type="video/mp4"></video>
-            <video controls class="video" loop><source src="assets/videos/lab 3/Resultante.mp4" type="video/mp4"></video>
+            <img class="teste2" src="assets/img/lab4/resultados/lucasimples3.png" alt="teste 1">
+            <img class="teste2" src="assets/img/lab4/resultados/eriksonsimples3.png" alt="teste 1">
 
-            <h4>Parte 2 (questão 3)</h4>
-            <p></p>
-            <video controls class="video" loop><source src="assets/videos/lab 3/Resultante3.mp4" type="video/mp4"></video>
+            <p>Aqui fica notável a importância da linearização adaptativa quando comparado à linearização global, onde fica perceptível apenas os 
+                contornos das formas, que são suavizadas posteriormente pelo filtro gaussiano.
+            </p>
+            <img class="teste2" src="assets/img/lab4/resultados/lucasadaptativo3.png" alt="teste 1">
+            <img class="teste2" src="assets/img/lab4/resultados/eriksonadaptativo3.png" alt="teste 1">
+            
+
+            <p>Aqui fica claro que a linearização de Otsu se assemelha muito à linearização global. É possível notar também, através do histograma, 
+                que o filtro gaussiano torna a imagem mais homogênea, reduzindo os espaços em brancos presentes no gráfico. 
+            </p>
+            <img class="teste2" src="assets/img/lab4/resultados/lucasotsu3.png" alt="teste 1">
+            <img class="teste2" src="assets/img/lab4/resultados/eriksonotsu3.png" alt="teste 1">
+
+            
+            <h4>4)</h4>
+            <p>Faltando</p>
+            <img class="teste1" src="" alt="teste 1">
 			
 
 		<h3>Conclusões e Comentários finais</h3>
-		<p>Neste laboratório foram estudados conceitos muito interessantes da aplicação da conversão de cores. A correção de cores é muito importante 
-            para a definição do tom que se deseja obter de um material áudio-visual, como em filmes ou fotografias. A detecção de cores pode ser 
-            utilizada para diversos fins, como detecção de resíduos ou de objetos de difícil detecção para o olho humano.
+		<p>Neste laboratório foram estudados conceitos muito interessantes sobre histogramas, linearização e equalização. A equalização se mostrou 
+            como muito útil para o aumento do contraste de imagens e para a melhor visualização de detalhes muito escuros. A linearização se assemelha 
+            aos filtros utilizados em programas como Word para a impressão de arquivos em preto e branco, podendo, a simples por exemplo, ser utilizada 
+            para poupar mais tinta no processo de impressão.
         </p>
     </main>
 
