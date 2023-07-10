@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/relatorio1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Parte 2</title>
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
+        <h1>Parte 2</h1>
+        <h2>Processamento de Vídeo 2023.2</h2>
+        
+    </header>
+
+    <main>
+        <h3>Introdução</h3>
+			<p>A parte 2 do projeto consiste na Modelagem Funcional do Sistema de Processamento Visual, onde o CENÁRIO do trabalho será detalhado 
+                quanto à concepção funcional do programa, prevendo seu uso no desenvolvimento do sistema.</p>
+
+			<h4>Objetivos</h4>
+			<ul>
+				<li>* Aplicar uma quantidade de conceitos de processamento de vídeo da disciplina.</li>
+                <li>* Executar a aplicação com cenas pré-gravadas, para testes e gravação de “demo”.</li>
+                <li>* Executar a aplicação com captura de vídeo em tempo real, mostrando na tela.</li>
+                <li>* Específico: ampliar e detalhar o cenário de aplicação do projeto.</li>
+			</ul>
+        
+    	<h3>Detalhamento do cenário de aplicação</h3>
+
+            <h4>Princípio</h4>
+            <p>Inicialmente, o projeto será desenvolvido em laboratório com auxilio de uma webcam e de um computador com Ubuntu, OpenCV e Python, onde o programa 
+                será confeccionado e testado, emitindo prints de validação e saídas de vídeo (gravações). Após isso, o programa será implementado em um circuito 
+                com Arduino que imitará um dispositivo real onde o programa rodaría. O arduíno servirá também como ponte para as saídas sonoras e luminosas, que serão 
+                acionadas ao se detectar movimento nas imagens.
+            </p>
+            <img class="teste4" src="assets/img/trab/diagrama2.png" alt="teste 1">
+            
+            <h4>Fluxograma do programa</h4>
+            <img class="teste4" src="assets/img/trab/diagrama.png" alt="teste 1">
+
+            <h4>Entrada</h4>
+            <p>Para fins de desenvolvimento do programa, a entrada deste consistirá dos frames provenientes da Webcam disponível no laboratório. 
+                Idealmente, a entrada do programa será as imagens de alguma câmera de segurança. De qualquer forma, as imagens provenientes de webcam ou 
+                da câmera serão transferidos e utilizados pelo programa para processamento das imagens.
+            </p>
+
+            <h4>Saídas</h4>
+            <p>O programa irá gerar duas saídas de vídeo, uma para o período diurno e um para o noturno. Na prática, essas duas saídas seriam apenas 
+                uma, onde o programa definirá, a partir do horário do sistema, qual das saídas disponibilizar para o usuário. A saída do perído diurno 
+                consistirá de um filtro bilateral, processamento de cor e detecção de movimento. A saída do perído noturno consistirá da equalização, para aumentar o contraste, já que a visibilidade durante esse período é reduzida, 
+                e da detecção de movimentos. Além das saídas de vídeo, o programa ativará também as saídas sonoras e/ou auditivas através do arduíno.
+            </p>
+
+            <h4>Filtro bilateral</h4>
+            <p>O filtro bilateral estudado nos laboratórios será utilizado para reduzir os ruídos das imagens e suavizá-las, tornando-as mais nítidas 
+                para possibilitar uma melhor análise caso necessário.
+            </p>
+
+            <h4>Processamento de cor</h4>
+            <p>O processamento de cor será utilizado no período diurno, onde as cores são mais aparentes, para focar na cor de pele possíveis pessoas cujo 
+                movimento for detectado. A ideia é que esse mecanismo possa ser acionado a qualquer momento a partir do pressionar de uma tecla ou botão.
+            </p>
+
+            <h4>Detecção de movimento</h4>
+            <p>A parte principal do projeto consiste na aplicação prática da detecção de movimento, que será aplicado em ambas as saídas do programa 
+                a fim de detectar possiveis atividades suspeitas e alertar os usuários.
+            </p>
+
+            <h4>Equalização</h4>
+            <p>A equalização será utilizada na saída noturna do programa para aumentar o contraste das imagens, já que estas apresentarão muitos 
+                pixeis pretos que dificultarão a análise das imagens. Durante o desenvolvimento, a aplicação será testada em um ambiente mais escuro, onde 
+                serão providenciados materiais para a realização do mesmo.
+            </p>
+
+    	<h4>Materiais</h4>
+			<ul>
+				<li>1. Ubuntu</li>
+				<li>2. Miniconda</li>
+				<li>3. Python</li>
+				<li>4. OpenCV</li>
+                <li>5. Webcam</li>
+                <li>6. Arduino</li>
+                <li>7. Placa de circuito</li>
+                <li>8. Cabos e leds</li>
+			</ul>
+            <p></p>
+
+            
+    </main>
+
+    <footer>
+        <p>Página do grupo composto por Lucas Medeiros e Erikson Jose para a disciplina de processamento de video 2023.2</p>
+        <p>Professor: Celso S Kurashima</p>
+    </footer>
+</body>
+
+</html>
