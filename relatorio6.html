@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/relatorio1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Relatório 6</title>
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
+        <h1>Relatório 6</h1>
+        <h2>Processamento de Vídeo 2023.2</h2>
+        
+    </header>
+
+    <main>
+        <h3>Introdução</h3>
+			<p>O experimento a seguir busca estudar e explorar a teoria da detecção de features em cenários, abordando também sua aplicação prática através de bibliotecas do OpenCV.</p>
+			<h4>Objetivos</h4>
+			<ul>
+				<li>Compreender a teoria da detecção de features e seus diferentes métodos</li>
+                <li>Aplicar o conhecimento na prática com OpenCV</li>
+                <li>Experimentar outras funcionalidades</li>
+			</ul>
+        
+    	<h3>Fundamentos básicos</h3>
+			<p>Features, assim como explicado nesse <a href="https://docs.opencv.org/4.x/df/d54/tutorial_py_features_meaning.html">*website*</a>, são características de uma imagem que se 
+                destacam das demais, sendo possível determinar o local da imagem a qual tal característica se refere. Features foram um conceito importante para a criação de outros 
+            mecanismos de detecção na computação, como é o caso dos estudados abaixo. Na computação visual, cantos podem ser definidos como regiões da imagem com grande variação de intensidade 
+        em todas as direções.</p>
+            <p>Através dessas features, duas pessoas, <a href="https://docs.opencv.org/4.x/dc/d0d/tutorial_py_features_harris.html">*Chris Harris e Mike Stephens*</a>, foram capazes de criar um algoritmo capaz de detectar a borda de objetos presentes em imagens. Para tal, eles formularam uma equação 
+                que encontra a diferença de intensidade em todas as direções em uma figura. A partir dessa equação, foi elaborada outra que dá a magnetude desses valores, valores esses que 
+                são utilizados pelo programa para determinar se tal região da imagem é uma aresta, um canto ou uma região plana.
+            </p>
+            <p>Outro algoritmo semelhante ao anterior é o detector de cantos <a href="https://docs.opencv.org/4.x/d4/d8c/tutorial_py_shi_tomasi.html">*Shi-Tomasi*</a> , onde duas pessoas, 
+                Shi e C. Tomasi, buscaram melhorar a detecção de cantos de Harris. Com a função da biblioteca do OpenCV, é possível, além de detectar as bordas, definir a quantidade de detecções 
+                desejada e a qualidade das mesmas, ou seja, o usuário pode escolher entre detectar as n melhores curvas, onde n é a quantidade de curvas.</p>
+            <p>Já o <a href="https://docs.opencv.org/4.x/da/df5/tutorial_py_sift_intro.html">*SIFT*</a> foi criado para a detecção de curvas em imagens dimensionadas, como por exemplo, que tenham 
+            sofrido com zoom. O OpenCV possui uma função SIFT que detecta pontos-chave de uma imagem, que são estruturas especiais que possuem muitos atributos como suas coordenadas (x,y), tamanho da 
+            vizinhança significativa, ângulo que especifica sua orientação, resposta que especifica a força dos pontos-chave, etc.</p>
+    
+    	<h3>Materiais e métodos</h3>
+			<ul>
+				<li>Ubuntu</li>
+				<li>Miniconda</li>
+				<li>Python</li>
+				<li>OpenCV</li>
+                <li>Webcam</li>
+			</ul>
+
+            <h4>1)</h4>
+            <p>Aqui, a partir dos algoritmos disponíveis nos sites acima e da biblioteca OpenCV, foi criado um único algoritmo que recebe uma imagem (filename), realizada a detecção de bordas 
+                Harris, Shi-Tomasi e SIFT, e devolve três imagens, cada uma com um método diferente aplicado. As funções Harris e SIFT utilizam o imwrite para gravar as imagens geradas, como 
+                o método Shi-Tomasi gera um gráfico, é necessário usar a função plt.savefig antes do plt.show, pois esta ultima apaga a imagem gerada.
+            </p>
+            <img class="teste2" src="assets/img/lab6/Screenshot_1.png" alt="teste 1">
+
+            <h4>2)</h4>
+            <p>Do mesmo modo, foi criado um único algoritmo que grava 3 vídeos com os 3 métodos diferenets aplicados em tempo real a partir do quarto algoritmo do relatório 1. É necessário 
+                criar uma entrada de vídeo para cada método.
+            </p>
+            <img class="teste2" src="assets/img/lab6/Screenshot_2.png" alt="teste 1">
+
+		<h3>Resultados e análise</h3>
+          
+            
+            <h4>1)</h4>
+            <p>Imagem original retirada do laboratório 4.</p>
+            <img class="teste2" src="assets/img/lab6/original.png" alt="teste 1">
+
+            <p>Imagem onde foi aplicada a detecção Harris Corner. Como se trata de uma imagem com muitos detalhes, é possível notar algumas inconsistências nos pontos detectados. No entanto, é 
+                possível notar que o algoritmo detectou com êxito bordas mais definidas, como nas estampas das camisetas.
+            </p>
+            <img class="teste2" src="assets/img/lab6/Harris_Corner.png" alt="teste 1">
+
+            <p>Imagem onde foi aplicada a detecção Shi-Tomasi. Esse método é, teoricamente, mais bem apurado que o primeiro. É possível notar que, assim como o programa definiu, só foram detectadas 
+                25 boras, as quais o programa determinou como sendo as melhores. Embora o programa leve em conta diversos parâmetros para tal, é possível notar que bordas bem definidas, como 
+                as da estampa da camiseta, não foram detectadas, podendo ser percebido que ele focou em pontos onde ocorre uma grande transição de coloração dos pixels.
+            </p>
+            <img class="teste2" src="assets/img/lab6/shi.png" alt="teste 1">
+
+            <p>Imagem onde foi aplicada a detecção SIFT. É possível notar que grande parte dos pontos-chave detectados estão em regiões com maior quantidade de detalhes, como os rostos. Superfícies com menos 
+                detalhes, como as partes sem estampa das camisetas, apresentaram menor densidade de pontos-chave.
+            </p>
+            <img class="teste2" src="assets/img/lab6/sift.png" alt="teste 1">
+
+            <h4>2)</h4>
+            <p>Aqui é possível notar a grande densidade de pontos na saída de ar do computador, ocasionado pela grande quantidade de transições entre duas colorações de pixels muito distintas.</p>
+            <video controls class="video" loop><source src="assets/videos/lab 6/saida1.mp4" type="video/mp4"></video>
+
+            <p>Embora tenha ficado pouco visível, é possível notar que as regiões estáticas do vídeo foram priorizadas pelo programa, sendo também pontos onde ocorre uma maior transição da coloração dos 
+                pixels.
+            </p>
+            <video controls class="video" loop><source src="assets/videos/lab 6/saida2.mp4" type="video/mp4"></video>
+
+            <p>De modo semelhante, aqui é possível notar que regiões com menor densidade de pixels com colorações diferentes apresentam menos pontos-chave, enquanto a blusa, região com muitos detalhes, 
+                apresenta alta densidade de pontos-chave.
+            </p>
+            <video controls class="video" loop><source src="assets/videos/lab 6/saida3.mp4" type="video/mp4"></video>
+
+		<h3>Conclusões e Comentários finais</h3>
+		<p>Neste laboratório foram estudados conceitos muito interessantes sobre a detecção de features em imagens através de funções do OpenCV. O método Harris demonstrou muita poluição 
+            visual nas imagens geradas, enquanto o método Shi-Tomasi apresenta uma consistência maior. Todos os métodos são um interessante estudo de como o cérebro humano se comporta para a 
+            detecção de características distinguíveis em uma imagem, podendo mostrar o que mais chama a atenção de alguém em uma figura. 
+        </p>
+    </main>
+
+    <footer>
+        <p>Página do grupo composto por Lucas Medeiros e Erikson Jose para a disciplina de processamento de video 2023.2</p>
+        <p>Professor: Celso S Kurashima</p>
+    </footer>
+</body>
+
+</html>
