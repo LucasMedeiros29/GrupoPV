@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/relatorio1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Relatório 7</title>
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
+        <h1>Relatório 7</h1>
+        <h2>Processamento de Vídeo 2023.2</h2>
+        
+    </header>
+
+    <main>
+        <h3>Introdução</h3>
+			<p>O experimento a seguir busca estudar e explorar a teoria da detecção de objetos através de tutoriais do OpenCV e de aplicações práticas utilizando a biblioteca do mesmo.</p>
+			<h4>Objetivos</h4>
+			<ul>
+				<li>Compreender a teoria da detecção de objetos em OpenCV</li>
+                <li>Aplicar o conhecimento na prática com OpenCV</li>
+                <li>Experimentar outras funcionalidades</li>
+			</ul>
+        
+    	<h3>Fundamentos básicos</h3>
+			<p></p>
+    
+    	<h3>Materiais e métodos</h3>
+			<ul>
+				<li>Ubuntu</li>
+				<li>Miniconda</li>
+				<li>Python</li>
+				<li>OpenCV</li>
+                <li>Webcam</li>
+			</ul>
+
+            <h4>1)</h4>
+            <p>Este abaixo se trata de um programa que realiza a leitura de uma imagem e detecta a face, olhos e bocas presentes nela. Após isso, os arquivos Xml são carregados e são aplicados 
+                para a detecção de cada atributo na mesma imagem. Em seguida, para cada atributo, também são criados retangulos que representarão a detecção desses atributos, sendo formados por um 'for' 
+                externo, que forma o rosto, e dois internos na mesma indentação que formam os olhos e bocas. Por último são utilizados os comandos básicos do OpenCV como imshow para mostrar a imagem final 
+                e imwrite para salvá-la.
+            </p>
+            <img class="teste2" src="assets/img/lab7/programa1.png" alt="teste 1">
+            <p>Este abaixo se trata do mesmo programa da etapa anterior, porém, foram utilizados arquivos Xml diferentes para a detecção de torsos e rostos de gatos.</p>
+            <img class="teste2" src="assets/img/lab7/programa1others.png" alt="teste 1">
+
+            <h4>2)</h4>
+            <p>Este abaixo se trata de um programa que realiza a leitura da webcam e realiza a detecção de objetos em tempo real, salvando um frame como imagem posteriormente. 
+                Foram utilizados comandos utilizados no terceiro algoritmo do relatório 1. Primeiro é criado uma variável (cap), que registra os frames capturados através do cv.videocapture e .read, 
+                depois, os arquivos Xml são carregados e são aplicados para a detecção de cada atributo nos frames, onde também são criados os retângulos para identificação. Após isso, são utilizados 
+                o comando imshow para mostrar os frames e imwrite para salvar um dos frames como imagem.
+            </p>
+            <img class="teste2" src="assets/img/lab7/programa2.png" alt="teste 1">
+
+		<h3>Resultados e análise</h3>
+          
+            
+            <h4>1)</h4>
+            <p>Aqui está um exemplo de aplicação do primeiro programa com uma foto dos integrantes do grupo. É possível notar que, no primeiro rosto, todos os atribuitos foram detectados 
+                corretamente, o que não ocorre no segundo, onde os olhos não são detectados, provavelmente por conta dos óculos. Além da boca ter sido detectada duas vezes por algum motivo.
+            </p>
+            <img class="teste2" src="assets/img/lab7/1grupo.png" alt="teste 1">
+            
+            <p>Já nos avatares, como esperado, não foram detectados nenhum dos atributos, já que se tratam de personagens que não apresentam traços semelhantes com os traços humanos.</p>
+            <img class="teste2" src="assets/img/lab7/1avatar.png" alt="teste 1">
+
+
+            <h4>2)</h4>
+            <p>Aqui foi realizado o teste de captura em tempo real, com um dos integrantes desta vez sem os óculos. É possível notar que, sem os óculos, a detecção funcionou normalmente.</p>
+            <img class="teste2" src="assets/img/lab7/foto1.png" alt="teste 1">
+
+		<h3>Conclusões e Comentários finais</h3>
+		<p>Neste laboratório foram estudados conceitos muito interessantes sobre a detecção de objetos específicos em imagens. Este conceito pode ser muito útil para aplicações práticas como 
+            diferenciar peças para separação em uma fábrica, detecção de rostos humanos para sistemas de segurança, etc. Porém, é preciso possuir conhecimento para o machine learning e para 
+            a criação dos arquivos utilizados para a detecção dos objetos.
+        </p>
+    </main>
+
+    <footer>
+        <p>Página do grupo composto por Lucas Medeiros e Erikson Jose para a disciplina de processamento de video 2023.2</p>
+        <p>Professor: Celso S Kurashima</p>
+    </footer>
+</body>
+
+</html>
