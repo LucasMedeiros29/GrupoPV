@@ -32,7 +32,20 @@
 			</ul>
         
     	<h3>Fundamentos básicos</h3>
-			<p></p>
+			<p>Um dos modos de se detectar objetos, disponível <a href="https://docs.opencv.org/4.x/db/d28/tutorial_cascade_classifier.html">*aqui*</a>, em OpenCv é através do método em cascata, que se baseia no aprendizado de máquina com 
+                imagens positivas e negativas sobre determinado objeto. Nesse método também são utilizados os recursos de Haar para detecção 
+                de features, visto no relatório anterior. Esse método também reduz a densidade de pixels na imagem para tornar os cálculos 
+                envolvendo as features menos custosas. Após isso, são selecionadas as características com menor texa de erro possível. Esse 
+                processo é repetido até que, no final, é realizada a somatória de todos os classificadores. Para otimizar o processo, a cascata de 
+                classificadores, onde, inicialmente, são aplicados os classificadores que gastam menos recursos para, caso uma determinada parte da 
+                imagem falhe, os recursos gastos sejam minímos. O OpenCV fornece um método de treinamento ou modelos pré-treinados, que podem ser lidos usando 
+                o método CascadeClassifier, onde um arquivo XML necessário é carregado usando o método CascadeClassifier.load. Por fim, a detecção é feita usando o 
+                método CascadeClassifier.detectMultiScale
+            </p>
+            <p>O OpenCV também disponibiliza arquivos pré-treinados para a detecção de alguns tipos de objetos, como rostos, bocas e olhos, disponível 
+                <a href="https://colab.research.google.com/github/computationalcore/introduction-to-opencv/blob/master/notebooks/4-Cascade_classification.ipynb#scrollTo=rOG12Rey7g9C">*aqui*</a>, 
+                junto com exemplos de como aplicar essa detecção em cascata e como juntá-las para detectar mais de um objeto de uma única vez.
+            </p>
     
     	<h3>Materiais e métodos</h3>
 			<ul>
@@ -62,8 +75,7 @@
             <img class="teste2" src="assets/img/lab7/programa2.png" alt="teste 1">
 
 		<h3>Resultados e análise</h3>
-          
-            
+
             <h4>1)</h4>
             <p>Aqui está um exemplo de aplicação do primeiro programa com uma foto dos integrantes do grupo. É possível notar que, no primeiro rosto, todos os atribuitos foram detectados 
                 corretamente, o que não ocorre no segundo, onde os olhos não são detectados, provavelmente por conta dos óculos. Além da boca ter sido detectada duas vezes por algum motivo.
@@ -72,7 +84,6 @@
             
             <p>Já nos avatares, como esperado, não foram detectados nenhum dos atributos, já que se tratam de personagens que não apresentam traços semelhantes com os traços humanos.</p>
             <img class="teste2" src="assets/img/lab7/1avatar.png" alt="teste 1">
-
 
             <h4>2)</h4>
             <p>Aqui foi realizado o teste de captura em tempo real, com um dos integrantes desta vez sem os óculos. É possível notar que, sem os óculos, a detecção funcionou normalmente.</p>
