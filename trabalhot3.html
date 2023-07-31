@@ -23,7 +23,7 @@
 
     <main>
         <h3>Introdução</h3>
-			<p>A parte 2 do projeto consiste no Desenvolvimento do Sistema de Processamento Visual (SPV), onde será elaborado um algoritmo 
+			<p>A parte 3 do projeto consiste no Desenvolvimento do Sistema de Processamento Visual (SPV), onde será elaborado um algoritmo 
                 em python que deverá atender aos requisitos impostos nas partes anteriores. Os códigos serão disponibiizados a seguir.
             </p>
 
@@ -39,11 +39,9 @@
         <h4>Atualização do cenário</h4>
             <p>Foram definidas pequenas mudanças no funcionamento do projeto. Não serão utilizados componentes físicos, como arduíno, para 
                 a aplicação do projeto: os alarmes serão sonoros (disparados pelo próprio computador) e visuais (notificação de alerta no 
-                computador). Além disso, foi definido que será realizado uma tentativa de modular os algoritmos do projeto, ou seja, existirá 
-                um programa principal que realizará a chamada dos outros programas quando necessário, tornando o projeto mais organizado e 
-                resolvendo conflitos que surgiram na emissão de alarmes em um mesmo programa (os alarmes congelavam o restante do programa). Além 
-                disso, será realizada uma tentativa de utilizar o horário do sistema para automatizar o processo, principalmente no que se refere 
-                aos períodos noturno e diurno definidos anteriormente.
+                computador / outro dispositivo). Além disso, será realizada uma tentativa de utilizar o horário do sistema para automatizar 
+                o processo, principalmente no que se refere aos períodos noturno e diurno definidos anteriormente, com a possibilidade de desativar os filtros 
+                através de uma tecla.
             </p>
 
     	<h4>Materiais</h4>
@@ -58,7 +56,14 @@
         
             <h3>Desenvolvimento</h3>
             <h4>Algoritmos</h4>
-            <img src="" alt="">
+            <p>Inicialmente, como solicitado pelo professor, foi criado um algoritmo que utiliza vídeos pré-gravados como teste de análise inicial. O programa a seguir, em tese, realiza a 
+                leitura de um vídeo e devolve duas janelas como resultado, um contendo o vídeo original e outra contendo o sistema de filtros, a depender do horário do sistema. Além disso, 
+                ambas as saídas detectam movimento e emitem um sinal sonoro caso o movimento seja detectado, além de enviar uma mensagem para o e-mail do usuário através de um e-mail do 
+                google (no caso, foi utilizada uma conta do google criada para o propósito desse projeto, e não uma conta pessoal). O sistema de filtros se trata de uma equalização para 
+                o período noturno e filtro bilateral para o período diurno. Os aquivos utilizados estão disponíveis <a href="https://drive.google.com/drive/folders/1gSzY6_htYngY36g-B1tkQqJxUJ41oLyL?usp=drive_link">AQUI</a>. 
+                O arquivo referente a esta etapa está nomeado como "por_video.py". Além disso, é necessário baixar também os arquivos de vídeo, som (em Ogg) e de email.py na mesma pasta do 
+                programa principal.
+            </p>
 
             <h4>Resultados preliminares</h4>
 
