@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/relatorio1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Parte 4</title>
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
+        <h1>Parte 4</h1>
+        <h2>Processamento de Vídeo 2023.2</h2>
+        
+    </header>
+
+    <main>
+        <h3>Introdução</h3>
+			<p>A parte 4 do projeto consiste na Elaboração do Roteiro Experimental de Aplicação (REA) e no Questionário Avaliativo (AQA). Na REA o grupo deverá preparar casos de aplicação do SPV, para sua execução em
+                tempo real com a webcam, por um usuário leigo, considerar essas aplicações como sendo experimentos didáticos de aula de laboratório e, para cada aplicação, deverá elaborar 
+                um roteiro de procedimento experimental com instruções claras e detalhadas para o usuário executar o sistema e coletar resultados. O roteiro pode conter figuras, imagens 
+                que esclareçam o procedimento e o tipo de resultados esperados.
+            </p>
+            <p>Na AQA, A equipe deverá elaborar um conjunto de questões e/ou perguntas para o
+                usuário responder em relação aos experimentos realizados, de modo a avaliar se
+                o usuário: (i) entendeu o assunto do tema através do experimento; (ii) obteve
+                resultados esperados; (iii) entedeu a aplicação final e futuras do sistema; etc. Para cada questão respondida pelo usuário deverá ser atribuída uma nota.
+                Calcular a média das notas de cada usuário, e colocar numa planilha
+                excel/office. </p>
+        
+        <h3>REA - Roteiro de aplicação</h3>
+        <h4>Antes de tudo</h4>
+        <ul>
+            <li>&#8594 <a href="https://drive.google.com/drive/folders/1gSzY6_htYngY36g-B1tkQqJxUJ41oLyL?usp=drive_link">Link do drive com os arquivos</a></li>
+            <li>&#8594 Crie uma pasta e coloque os três arquivos nela (tempo_real_v4.py, enviador.py e soundfile.ogg).</li>
+            <li>&#8594 Com a pasta aberta, clique com o botão direito do mouse dentro dela e abra o terminal do Ubuntu.</li>
+            <li>&#8594 Execute os comandos para instalar as bibliotecas necessárias no terminal:
+                <li class="semi">&#8594 pip install datetime</li>
+                <li class="semi">&#8594 pip install os-sys</li>
+                <li class="semi">&#8594 pip install pygame</li>
+                <li class="semi">&#8594 sudo apt install python3-numpy</li>
+                <li class="semi">&#8594 pip install subprocess.run</li>
+            </li>
+            <li>&#8594 Abra o programa enviador.py em um bloco de notas e, na variável "email_receiver", coloque seu endereço de e-mail (pode ser pessoal)</li>
+            <li>&#8594 Rode o programa principal com python3 tempo_real_V4.py</li>
+        </ul>
+        
+        <h4>Caso 1 - Teste de som</h4>
+            <li>&#8594 O programa é feito para emitir um som de aviso caso movimento seja detectado.</li>
+            <li>&#8594 Abra o programa no terminal e realize um movimento, verifique se algum som foi emitido do computador (verifique se o sistema está com som habilitado).</li>
+        
+            <h4>Caso 2 - Perídodo diurno</h4>
+            <ul>
+                <li>&#8594 O programa principal é feito para ler o horário do sistema do usuário e detectar se está de dia ou de noite, aplicando automaticamente os respectivos filtros.</li>
+                <li>&#8594 Como não podemos esperar muito para que isso ocorra, abre o programa no bloco de notas troque manualmente a variável "hora" na linha 33.
+                    <li class="semi">&#8594 Para isso, comente o função "int(now.strftime("%H"))" (acrescente um # antes), ou</li>
+                    <li class="semi">&#8594 Apague a função "int(now.strftime("%H"))"</li>
+                    <li class="semi">&#8594 No lugar, coloque um número que represente o período diurno (entre 6 e 17)</li>
+                </li>
+                <li>&#8594 O resultado deverá ser duas janelas, uma contendo a imagem filtrada (filtro bilateral) e uma sem filtro.</li>
+            </ul>
+
+        <h4>Caso 3 - Perídodo noturno</h4>
+            <ul>
+                <li>&#8594 Repita o processo anterior e troque a variável "hora" para um número entre 18 e 23 ou 0 e 5.</li>
+                <li>&#8594 O resultado deverá ser duas janelas, uma contendo a imagem no modo noturno (equalizada) e uma sem filtro.</li>
+            </ul>
+
+        <h4>Caso 4 - Revebimento de e-mail</h4>
+            <ul>
+                <li>&#8594 Caso não tenha feito, abra o programa enviador.py em um bloco de notas e, na variável "email_receiver", coloque seu endereço de e-mail (pode ser pessoal).</li>
+                <li>&#8594 O programa é feito para enviar um e-mail de alerta caso seja detectado movimento (uma vez por abertura de programa).</li>
+                <li>&#8594 Verifique se recebeu algum e-mail (verifique também na caixa de spam).</li>
+            </ul>
+
+        <h4>Caso 5 - Troca de filtro diurno</h4>
+            <ul>
+                <li>&#8594 Abra o programa com o terminal no modo diurno (vide caso 3) e, com as janelas abertas, segura a tecla "t".</li>
+                <li>&#8594 Uma das janelas deve ter trocado para o modo de detecção de tom de pele, verifique com mais integrantes do grupo.</li>
+            </ul>
+        
+        
+        <h4>Caso 6 - Registro em vídeo</h4>
+            <ul>
+                <li>&#8594 Abra o programa no terminal sem realizar movimentos em frente a câmera.</li>
+                <li>&#8594 Após um breve momento, realize movimentos continuos e pare novamente.</li>
+                <li>&#8594 Feche o programa e verifique a pasta onde estão os arquivos.</li>
+                <li>&#8594 O programa deverá ter registrado dois vídeos, verifique aquele com nome "Normal.avi"</li>
+                <li>&#8594 O vídeo deve ter registrado apenas o período de movimento.</li>
+                <li>&#8594 Obs: O programa não realiza a gravação do filtro equalizado por limitações do OpenCV, mas grava o filtro diurno (tanto a detecção de cor quanto o bilateral), 
+                    pode ser conferido em Filtro.avi.</li>
+                <li>&#8594 Obs2: O programa grava novos vídeos por cima de vídeos antigos, tenha isso em mente ao alternar entre os períodos.</li>
+            </ul>
+        <h4></h4>
+
+        <H3>AQA</H3>
+        <p><a href="https://forms.gle/oEVqvf5iswJeeKzz9">Link do questionário</a></p>
+
+        <h3>Enquete Subjetiva de Opinião (ESO)</h3>
+        <p><a href="https://forms.gle/EyufJYuNK11G3bw8A">Link da pesquisa</a></p>
+
+            
+    </main>
+
+    <footer>
+        <p>Página do grupo composto por Lucas Medeiros e Erikson Jose para a disciplina de processamento de video 2023.2</p>
+        <p>Professor: Celso S Kurashima</p>
+    </footer>
+</body>
+
+</html>
