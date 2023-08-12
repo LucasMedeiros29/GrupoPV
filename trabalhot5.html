@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/relatorio1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Parte 4</title>
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
+        <h1>Parte 4</h1>
+        <h2>Processamento de Vídeo 2023.2</h2>
+        
+    </header>
+
+    <main>
+        <h3>Introdução</h3>
+            <h4>Contexto</h4>
+                <p>O grupo a ser entrevistado foi minha família e o contexto são as câmeras de segurança instaladas na vizinhança da minha rua para o aumento da segurança. 
+                    Foi discutido como eu poderia utilizar os conceitos que presenciei e que presenciarei em aula para auxiliar na melhora do sistema de vigilância por câmeras. 
+                    Primeiramente, foi sugerida a utilização da análise de movimento para detectar qualquer movimentação suspeita nas ruas em determinado período do dia (preferencialmente 
+                    período noturno), emitindo um alerta, sonoro ou visual, caso as câmeras detectassem algo, podendo, inclusive, iniciar uma gravação enquanto houvesse a movimentação. As 
+                    câmeras e o sistema de segurança estão distribuídos em algumas casas da vizinhança, porém, no período noturno, as câmeras podem não apresentar uma qualidade de imagem 
+                    satisfatória. Por isso, sugeri a utilização de filtros para diminuir a granulação da imagem. Mostrei os resultados do experimento 2 e foi decidido que o melhor filtro 
+                    seria o bilateral, pois os outros embaçavam muito a imagem. Também sugeri a utilização do processamento de cores para destacar tons de pele ou para aumentar a facilidade 
+                    de visualização do trajeto dos objetos/pessoas em movimento. Como no perído noturno a visibilidade é baixa por conta da ausência de iluminação e aumento da quantidade de 
+                    pixels pretos, sugeri também a equalização das imagens geradas pela câmera, tornando muito mais perceptível o que está ocorrendo no ambiente.
+                    Além disso, também foi solicitada uma forma de aviso visual.
+                </p>
+            <h4>Objetivos</h4>
+                <p>Os objetos deste projeto são aplicar conceitos de processamento de vídeo da disciplina, mostrando, em tempo real, um sistema de câmeras de segurança que detectem movimentos, 
+                    emitam alarmes sonoros e visuais e que gravem os movimentos detectados. Ou seja, criar um sistema de segurança funcional que atenda às necessidades de monitoramento de uma 
+                    vizinhança utilizando conceitos da disciplina de processamento de vídeo.
+                </p>
+        <h3>Materiais e métodos</h3>
+            <h4>Cenário de Aplicação (CA)</h4>
+                <p>O cenário de aplicação do projeto é uma vizinhança que possua um sistema de câmeras de segurança, ou seja, um cenário aberto afetado pela variação de luminosidade natural.</p>
+
+            <h4>Modelagem Funcional do Sistema de Processamento Visual (MFS)</h4>
+                <p>Inicialmente, o projeto será desenvolvido em laboratório com auxilio de uma webcam e de um computador com Ubuntu, OpenCV e Python, onde o programa será confeccionado e testado, 
+                    emitindo prints de validação e saídas de vídeo (gravações).</p>
+                <p>Para fins de desenvolvimento do programa, a entrada deste consistirá dos frames provenientes da Webcam disponível no laboratório. Idealmente, a entrada do programa será as imagens 
+                    de alguma câmera de segurança. De qualquer forma, as imagens provenientes de webcam ou da câmera serão transferidos e utilizados pelo programa para processamento das imagens. O programa 
+                    irá gerar duas saídas de vídeo, uma para o período diurno e um para o noturno. Na prática, essas duas saídas seriam apenas uma, onde o programa definirá, a partir do horário do 
+                    sistema, qual das saídas disponibilizar para o usuário. A saída do perído diurno consistirá de um filtro bilateral, processamento de cor e detecção de movimento. A saída do perído 
+                    noturno consistirá da equalização, para aumentar o contraste, já que a visibilidade durante esse período é reduzida, e da detecção de movimentos. Além das saídas de vídeo, o programa 
+                    ativará também as saídas sonoras através dele mesmo. O filtro bilateral estudado nos laboratórios será utilizado para reduzir os ruídos das imagens e suavizá-las, 
+                    tornando-as mais nítidas para possibilitar uma melhor análise caso necessário. O processamento de cor será utilizado no período diurno, onde as cores são mais aparentes, para focar 
+                    na cor de pele possíveis pessoas cujo movimento for detectado. A ideia é que esse mecanismo possa ser acionado a qualquer momento a partir do pressionar de uma tecla ou botão. A parte 
+                    principal do projeto consiste na aplicação prática da detecção de movimento, que será aplicado em ambas as saídas do programa a fim de detectar possiveis atividades suspeitas e 
+                    alertar os usuários. A equalização será utilizada na saída noturna do programa para aumentar o contraste das imagens, já que estas apresentarão muitos pixeis pretos que dificultarão a 
+                    análise das imagens. Durante o desenvolvimento, a aplicação será testada em um ambiente mais escuro, onde serão providenciados materiais para a realização do mesmo.</p>
+                    
+
+            <h4>Cronograma efetivo do desenvolvimento do SPV</h4>
+                <p>Não houve um cronograma específico para elaboração do programa, ele foi elaborado durante as aulas de Processamento Visual.</p>
+                <p>Checklist</p>
+                <ul>
+                    <li>&#8594 Emitir som ao detectar movimento sem travar o restante do programa.</li>
+                    <li>&#8594 Enviar mensagem de e-mail ao detectar movimento.</li>
+                    <li>&#8594 Gravar vídeo apenas da movimentação (gravar em mais arquivos diferentes (não substituir o anterior, o nome do 
+                        arquivo deve ser o horário inicial do ocorrido))</li>
+                    <li>&#8594 Gravar a saída normal e a saída diurna/noturna</li>
+                    <li>&#8594 Aguardar 10 segundos de movimento para emitir som, enviar mensagem e gravar vídeo</li>
+                    <li>&#8594 Exibir duas saídas de vídeo (sem filtro e diurno/noturno, a depender da hora do sistema)</li>
+                    <li>&#8594 Filtro noturno: 
+                        Equalização</li>
+                    <li>&#8594 Filtro diurno:
+                        Filtro bilateral, 
+                        Detecção de cor e 
+                        Alternar entre esses dois ao pressionar uma tecla</li>
+                    <li>&#8594 Sair do programa ao pressionar Esc</li>
+                </ul>
+
+            <h4>Aplicação do SPV</h4>
+                <ul>
+                    <li>&#8594 Crie uma pasta e coloque os três arquivos nela (tempo_real_v4.py, enviador.py e soundfile.ogg).</li>
+                    <li>&#8594 Com a pasta aberta, clique com o botão direito do mouse dentro dela e abra o terminal do Ubuntu.</li>
+                    <li>&#8594 Execute os comandos para instalar as bibliotecas necessárias no terminal:
+                        <li class="semi">&#8594 pip install datetime</li>
+                        <li class="semi">&#8594 pip install os-sys</li>
+                        <li class="semi">&#8594 pip install pygame</li>
+                        <li class="semi">&#8594 sudo apt install python3-numpy</li>
+                        <li class="semi">&#8594 pip install subprocess.run</li>
+                    </li>
+                    <li>&#8594 Abra o programa enviador.py em um bloco de notas e, na variável "email_receiver", coloque seu endereço de e-mail (pode ser pessoal)</li>
+                    <li>&#8594 Rode o programa principal com python3 tempo_real_V4.py</li>
+                </ul>
+                
+                <p><strong>Teste de som</strong></p>
+                    <li>&#8594 O programa é feito para emitir um som de aviso caso movimento seja detectado.</li>
+                    <li>&#8594 Abra o programa no terminal e realize um movimento, verifique se algum som foi emitido do computador (verifique se o sistema está com som habilitado).</li>
+                
+                <p><strong>Perídodo diurno</strong></p>
+                <ul>
+                    <li>&#8594 O programa principal é feito para ler o horário do sistema do usuário e detectar se está de dia ou de noite, aplicando automaticamente os respectivos filtros.</li>
+                    <li>&#8594 Como não podemos esperar muito para que isso ocorra, abre o programa no bloco de notas troque manualmente a variável "hora" na linha 33.
+                        <li class="semi">&#8594 Para isso, comente o função "int(now.strftime("%H"))" (acrescente um # antes), ou</li>
+                        <li class="semi">&#8594 Apague a função "int(now.strftime("%H"))"</li>
+                        <li class="semi">&#8594 No lugar, coloque um número que represente o período diurno (entre 6 e 17)</li>
+                    </li>
+                    <li>&#8594 O resultado deverá ser duas janelas, uma contendo a imagem filtrada (filtro bilateral) e uma sem filtro.</li>
+                </ul>
+        
+                <p><strong>Perídodo noturno</strong></p>
+                    <ul>
+                        <li>&#8594 Repita o processo anterior e troque a variável "hora" para um número entre 18 e 23 ou 0 e 5.</li>
+                        <li>&#8594 O resultado deverá ser duas janelas, uma contendo a imagem no modo noturno (equalizada) e uma sem filtro.</li>
+                    </ul>
+        
+                <p><strong>Revebimento de e-mail</strong></p>
+                    <ul>
+                        <li>&#8594 Caso não tenha feito, abra o programa enviador.py em um bloco de notas e, na variável "email_receiver", coloque seu endereço de e-mail (pode ser pessoal).</li>
+                        <li>&#8594 O programa é feito para enviar um e-mail de alerta caso seja detectado movimento (uma vez por abertura de programa).</li>
+                        <li>&#8594 Verifique se recebeu algum e-mail (verifique também na caixa de spam).</li>
+                    </ul>
+        
+                <p><strong>Troca de filtro diurno</strong></p>
+                    <ul>
+                        <li>&#8594 Abra o programa com o terminal no modo diurno (vide caso 3) e, com as janelas abertas, segura a tecla "t".</li>
+                        <li>&#8594 Uma das janelas deve ter trocado para o modo de detecção de tom de pele, verifique com mais integrantes do grupo.</li>
+                    </ul>
+                
+                
+                <p><strong>Registro em vídeo</strong></p>
+                    <ul>
+                        <li>&#8594 Abra o programa no terminal sem realizar movimentos em frente a câmera.</li>
+                        <li>&#8594 Após um breve momento, realize movimentos continuos e pare novamente.</li>
+                        <li>&#8594 Feche o programa e verifique a pasta onde estão os arquivos.</li>
+                        <li>&#8594 O programa deverá ter registrado dois vídeos, verifique aquele com nome "Normal.avi"</li>
+                        <li>&#8594 O vídeo deve ter registrado apenas o período de movimento.</li>
+                        <li>&#8594 Obs: O programa não realiza a gravação do filtro equalizado por limitações do OpenCV, mas grava o filtro diurno (tanto a detecção de cor quanto o bilateral), 
+                            pode ser conferido em Filtro.avi.</li>
+                        <li>&#8594 Obs2: O programa grava novos vídeos por cima de vídeos antigos, tenha isso em mente ao alternar entre os períodos.</li>
+                    </ul>
+
+            <h4>análise técnica</h4>
+                <p>Em relação ao checklist, com exceção dos items "Aguardar 10 segundos de movimento para emitir som, enviar mensagem e gravar vídeo" e "gravar em mais arquivos diferentes", 
+                    todos os outros foram atendidos com exito. Como o único tempo disponível para programação e teste do algoritmo é no laboratório, não encontramos tempo suficiente 
+                    para obter êxito em todos os items.</p>
+                <p>Em relação ao CA, todas as funcionalidades propostas foram atendidas.</p>
+
+            <h4>Lista dos arquivos</h4>
+                <ul>
+                    <li>Enviador.py</li>
+                    <li>tempo_real_V4.py</li>
+                    <li>soundfile.ogg</li>
+                </ul>
+                <p>Todos os arquivos se encontram neste <a href="https://drive.google.com/drive/folders/1gSzY6_htYngY36g-B1tkQqJxUJ41oLyL?usp=drive_link">Link do drive com os arquivos</a>.</p>
+                
+            <h4>Análise dos Resultados do Teste de Campo TCS</h4>
+                <p>Para realização da análise, foram criados os testes presentes no capítulo de aplicação do SPV, onde, a partir deles, foi criada a AQA, como consta nos anexos.</p>
+                <p>A partir da AQA, os alunos que realizaram ela foram avaliados a partir das respostas em cada pergunta.</p>
+
+        <h3>Conclusões</h3>
+
+        <h3>Referências Bibliográficas</h3>
+            <ul>
+                <li>&#8594 <a href="https://www.youtube.com/watch?v=g_j6ILT-X0k">How to Send Emails with Python [New Method 2023] - The PyCoach</a></li>
+                <li>&#8594 Material disponibilizado pelo docente da disciplina.</li>
+                <li>&#8594 <a href="https://www.pygame.org/docs/ref/mixer.html">pygame module for loading and playing sounds - pygame</a></li>
+                <li>&#8594 <a href="https://docs.python.org/3/library/datetime.html">datetime — Basic date and time types - python</a></li>
+                <li>&#8594 <a href="https://docs.python.org/3/library/subprocess.html">subprocess — Subprocess management - python</a></li>
+                <li>&#8594 <a href="https://www.hashtagtreinamentos.com/como-trabalhar-com-tempo-no-python#:~:text=%C3%A9%20o%20datetime.-,date.,a%20data%20atual%20no%20Python.">COMO TRABALHAR COM TEMPO NO PYTHON – BIBLIOTECA DATETIME - Hashtag treinamentos</a></li>
+                <li>&#8594 <a href="https://hackthedeveloper.com/motion-detection-opencv-python/">Motion Detection OpenCV Python  - Hack The Developer</a></li>
+            </ul>
+        <h3>Anexos</h3>
+            <p><strong>Anexo 1 - Contexto - sistema de câmeras</strong></p>
+            <img class="teste3" src="assets/img/trab/1.jpg" alt="teste 1">
+            <img class="teste3" src="assets/img/trab/2.jpg" alt="teste 1">
+            <img class="teste3" src="assets/img/trab/3.jpg" alt="teste 1">
+            <p><strong>Anexo 2 - Diagrama do programa</strong></p>
+            <img class="teste2" src="assets/img/trab/diagrama.png" alt="teste 1">
+            <p><strong>Anexo 3 - Script do programa principal</strong></p>
+            <img class="teste2" src="assets/img/trab/principal1.png" alt="">
+            <img class="teste2" src="assets/img/trab/principal2.png" alt="">
+            <p><strong>Anexo 4 - Script do programa que envia e-mails</strong></p>
+            <img class="teste2" src="assets/img/trab/email.png" alt="">
+            <p><strong>Anexo 5 - Vídeo de demonstração do programa</strong></p>
+            <video controls class="video2" loop><source src="assets/videos/teste_programa.mp4" type="video/mp4"></video>
+            <p><strong>Anexo 6 - AQA</strong></p>
+            <img class="teste2" src="assets/img/final/aqa1.png" alt="">
+            <img class="teste2" src="assets/img/final/aqa2.png" alt="">
+            <p><strong>Anexo 6 - Avaliação do AQA</strong></p>
+            <img class="teste2" src="assets/img/final/notas.png" alt="">
+            <p><strong>Anexo 7 - Enquete</strong></p>
+            <img class="teste2" src="assets/img/final/enquete.png" alt="">
+            <p><strong>Anexo 6 - Respostas da enquete</strong></p>
+            <img class="teste2" src="assets/img/final/respenquete.png" alt="">
+
+    </main>
+
+    <footer>
+        <p>Página do grupo composto por Lucas Medeiros e Erikson Jose para a disciplina de processamento de video 2023.2</p>
+        <p>Professor: Celso S Kurashima</p>
+    </footer>
+</body>
+
+</html>
