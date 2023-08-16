@@ -9,14 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <title>Relatório final</title>
+    <title>Relatório Final</title>
 </head>
 
 <body>
     
     <header>
         <a href="index.html"><img class="ufabc" src="assets/img/ufabc.png" alt="ufabc logo"></a>
-        <h1>Relatório final</h1>
+        <h1>Relatório Final do Trabalho (RFT)</h1>
         <h2>Processamento de Vídeo 2023.2</h2>
         
     </header>
@@ -24,17 +24,11 @@
     <main>
         <h3>Introdução</h3>
             <h4>Contexto</h4>
-                <p>O grupo a ser entrevistado foi minha família e o contexto são as câmeras de segurança instaladas na vizinhança da minha rua para o aumento da segurança. 
-                    Foi discutido como eu poderia utilizar os conceitos que presenciei e que presenciarei em aula para auxiliar na melhora do sistema de vigilância por câmeras. 
-                    Primeiramente, foi sugerida a utilização da análise de movimento para detectar qualquer movimentação suspeita nas ruas em determinado período do dia (preferencialmente 
-                    período noturno), emitindo um alerta, sonoro ou visual, caso as câmeras detectassem algo, podendo, inclusive, iniciar uma gravação enquanto houvesse a movimentação. As 
-                    câmeras e o sistema de segurança estão distribuídos em algumas casas da vizinhança, porém, no período noturno, as câmeras podem não apresentar uma qualidade de imagem 
-                    satisfatória. Por isso, sugeri a utilização de filtros para diminuir a granulação da imagem. Mostrei os resultados do experimento 2 e foi decidido que o melhor filtro 
-                    seria o bilateral, pois os outros embaçavam muito a imagem. Também sugeri a utilização do processamento de cores para destacar tons de pele ou para aumentar a facilidade 
-                    de visualização do trajeto dos objetos/pessoas em movimento. Como no perído noturno a visibilidade é baixa por conta da ausência de iluminação e aumento da quantidade de 
-                    pixels pretos, sugeri também a equalização das imagens geradas pela câmera, tornando muito mais perceptível o que está ocorrendo no ambiente.
-                    Além disso, também foi solicitada uma forma de aviso visual.
-                </p>
+                <p>Esse projeto foi desenvolvido para a disciplina de processamento de vídeo sob supervisão do docente Celso S. Kurashimaum para fins de avaliação de aplicação dos conceitos vistos em aula, 
+                    tais como filtragem de imagens, processamento de cores, histograma e subtração de fundo. Foram então definidas etapas para elaboração do projeto e este é o relatório final desse projeto.</p>
+                
+                    <p>Para desenvolvimento do tema, inicialmente um grupo de pessoas que possui um sistema de câmeras foi entrevistado. Essas câmeras de segurança são instaladas na vizinhança de uma rua para monitoramento 
+                    da movimentação das pessoas. </p>
             <h4>Objetivos</h4>
                 <p>Os objetos deste projeto são aplicar conceitos de processamento de vídeo da disciplina, mostrando, em tempo real, um sistema de câmeras de segurança que detectem movimentos, 
                     emitam alarmes sonoros e visuais e que gravem os movimentos detectados. Ou seja, criar um sistema de segurança funcional que atenda às necessidades de monitoramento de uma 
@@ -42,27 +36,39 @@
                 </p>
         <h3>Materiais e métodos</h3>
             <h4>Cenário de Aplicação (CA)</h4>
-                <p>O cenário de aplicação do projeto é uma vizinhança que possua um sistema de câmeras de segurança, ou seja, um cenário aberto afetado pela variação de luminosidade natural.</p>
+                <p>Para o cenário de aplicação, um grupo de pessoas da minha vizinhança foi entrevistado e foi discutido os conceitos da disciplina que melhor se aplicariam ao projeto. O 
+                    cenário é então uma vizinhança que possua um sistema de câmeras de segurança, ou seja, um cenário aberto afetado pela variação de luminosidade natural (dia e noite), podendo ser 
+                    aplicado também em qualquer outro ambiente para monitoramento.</p>
+
+                <p>Foi discutido como eu poderia utilizar os conceitos que presenciei em aula para auxiliar na melhora do sistema de vigilância. 
+                    Primeiramente, foi sugerida a utilização da análise de movimento para detectar qualquer movimentação suspeita nas ruas em determinado período do dia (preferencialmente 
+                    período noturno), emitindo um alerta, sonoro ou visual, caso as câmeras detectassem algo, podendo, inclusive, iniciar uma gravação enquanto houvesse a movimentação. As 
+                    câmeras e o sistema de segurança estão distribuídos em algumas casas da vizinhança, porém, no período noturno, as câmeras podem não apresentar uma qualidade de imagem 
+                    satisfatória. Por isso, sugeri a utilização de filtros para diminuir a granulação da imagem. Mostrei os resultados do experimento 2 e foi decidido que o melhor filtro 
+                    seria o bilateral, pois os outros embaçavam muito a imagem. Também sugeri a utilização do processamento de cores para destacar tons de pele ou para aumentar a facilidade 
+                    de visualização do trajeto dos objetos/pessoas em movimento. Como no perído noturno a visibilidade é baixa por conta da ausência de iluminação e aumento da quantidade de 
+                    pixels pretos, sugeri também a equalização das imagens geradas pela câmera, tornando muito mais perceptível o que está ocorrendo no ambiente.
+                    Além disso, também foi solicitada uma forma de aviso visual.</p>
 
             <h4>Modelagem Funcional do Sistema de Processamento Visual (MFS)</h4>
-                <p>Inicialmente, o projeto será desenvolvido em laboratório com auxilio de uma webcam e de um computador com Ubuntu, OpenCV e Python, onde o programa será confeccionado e testado, 
-                    emitindo prints de validação e saídas de vídeo (gravações).</p>
-                <p>Para fins de desenvolvimento do programa, a entrada deste consistirá dos frames provenientes da Webcam disponível no laboratório. Idealmente, a entrada do programa será as imagens 
-                    de alguma câmera de segurança. De qualquer forma, as imagens provenientes de webcam ou da câmera serão transferidos e utilizados pelo programa para processamento das imagens. O programa 
-                    irá gerar duas saídas de vídeo, uma para o período diurno e um para o noturno. Na prática, essas duas saídas seriam apenas uma, onde o programa definirá, a partir do horário do 
-                    sistema, qual das saídas disponibilizar para o usuário. A saída do perído diurno consistirá de um filtro bilateral, processamento de cor e detecção de movimento. A saída do perído 
-                    noturno consistirá da equalização, para aumentar o contraste, já que a visibilidade durante esse período é reduzida, e da detecção de movimentos. Além das saídas de vídeo, o programa 
-                    ativará também as saídas sonoras através dele mesmo. O filtro bilateral estudado nos laboratórios será utilizado para reduzir os ruídos das imagens e suavizá-las, 
-                    tornando-as mais nítidas para possibilitar uma melhor análise caso necessário. O processamento de cor será utilizado no período diurno, onde as cores são mais aparentes, para focar 
-                    na cor de pele possíveis pessoas cujo movimento for detectado. A ideia é que esse mecanismo possa ser acionado a qualquer momento a partir do pressionar de uma tecla ou botão. A parte 
+                <p>O projeto foi desenvolvido em laboratório com auxilio de uma webcam e de um computador com Ubuntu, OpenCV e Python, onde o programa foi confeccionado e testado. Para fins de 
+                    desenvolvimento do programa, a entrada deste consistirá dos frames provenientes da Webcam disponível no laboratório. Idealmente, a entrada do programa será as imagens 
+                    de alguma câmera de segurança. De qualquer forma, as imagens provenientes de webcam ou da câmera serão transferidos e utilizados pelo programa para processamento das imagens.</p>
+                <p> O programa gerará duas saídas de vídeo, uma para os filtros diurno ou noturno e uma para o vídeo normal, sendo que o programa definirá, na prática, a partir do horário do 
+                    sistema, qual dos filtros disponibilizar para o usuário. A saída do perído diurno consistirá de um filtro bilateral, processamento de cor e detecção de movimento. A saída do filtro 
+                    noturno consistirá da equalização, para aumentar o contraste, já que a visibilidade durante esse período é reduzida, e da detecção de movimentos. </p>
+                <p>Além das saídas de vídeo, o programa ativará também as saídas sonoras através dos alto-falantes do computador e enviará um e-mail de alerta para o usuário. O filtro bilateral, estudado 
+                    nos laboratórios, será utilizado para reduzir os ruídos das imagens e suavizá-las, tornando-as mais nítidas para possibilitar uma melhor análise, caso necessário. O processamento de cor será utilizado no período diurno, onde as cores são mais aparentes, para focar 
+                    na cor da pele das pessoas cujo movimento for detectado. A ideia é que esse mecanismo possa ser acionado a qualquer momento a partir do pressionar de uma tecla. A parte 
                     principal do projeto consiste na aplicação prática da detecção de movimento, que será aplicado em ambas as saídas do programa a fim de detectar possiveis atividades suspeitas e 
                     alertar os usuários. A equalização será utilizada na saída noturna do programa para aumentar o contraste das imagens, já que estas apresentarão muitos pixeis pretos que dificultarão a 
-                    análise das imagens. Durante o desenvolvimento, a aplicação será testada em um ambiente mais escuro, onde serão providenciados materiais para a realização do mesmo.</p>
+                    análise das imagens.</p>
                     
 
             <h4>Cronograma efetivo do desenvolvimento do SPV</h4>
-                <p>Não houve um cronograma específico para elaboração do programa, ele foi elaborado durante as aulas de Processamento Visual.</p>
-                <p>Checklist</p>
+                <p>Não houve um cronograma específico para elaboração do programa, ele foi elaborado e testado durante as aulas de Processamento Visual.</p>
+                <p>Abaixo se encontra um roteiro de construção do projeto, listando as funcionalidades e objetivos.</p>
+                <p><strong>Checklist</strong></p>
                 <ul>
                     <li>&#8594 Emitir som ao detectar movimento sem travar o restante do programa.</li>
                     <li>&#8594 Enviar mensagem de e-mail ao detectar movimento.</li>
@@ -81,6 +87,9 @@
                 </ul>
 
             <h4>Aplicação do SPV</h4>
+                <p>A seguir se encontram, detalhadamente, instruções de como utilizar o programa e suas utilidades. Além disso, no anexo 5 se encontra um vídeo de demonstração 
+                    dos resultados esperados.
+                </p>
                 <ul>
                     <li>&#8594 Crie uma pasta e coloque os três arquivos nela (tempo_real_v4.py, enviador.py e soundfile.ogg).</li>
                     <li>&#8594 Com a pasta aberta, clique com o botão direito do mouse dentro dela e abra o terminal do Ubuntu.</li>
@@ -116,7 +125,7 @@
                         <li>&#8594 O resultado deverá ser duas janelas, uma contendo a imagem no modo noturno (equalizada) e uma sem filtro.</li>
                     </ul>
         
-                <p><strong>Revebimento de e-mail</strong></p>
+                <p><strong>Recebimento de e-mail</strong></p>
                     <ul>
                         <li>&#8594 Caso não tenha feito, abra o programa enviador.py em um bloco de notas e, na variável "email_receiver", coloque seu endereço de e-mail (pode ser pessoal).</li>
                         <li>&#8594 O programa é feito para enviar um e-mail de alerta caso seja detectado movimento (uma vez por abertura de programa).</li>
@@ -143,24 +152,61 @@
                     </ul>
 
             <h4>análise técnica</h4>
-                <p>Em relação ao checklist, com exceção dos items "Aguardar 10 segundos de movimento para emitir som, enviar mensagem e gravar vídeo" e "gravar em mais arquivos diferentes", 
-                    todos os outros foram atendidos com exito. Como o único tempo disponível para programação e teste do algoritmo é no laboratório, não encontramos tempo suficiente 
-                    para obter êxito em todos os items.</p>
-                <p>Em relação ao CA, todas as funcionalidades propostas foram atendidas.</p>
+                <p>Em relação ao Cenário de aplicação, todas as funcionalidades propostas foram atendidas, principalmente com relação ao intuito de aplicar todos os conceitos obrigatórios da 
+                    disciplina como especificado pelo docente.</p>
+                <p>Em relação ao checklist apresentado no cronograma efetivo do desenvolvimento do SPV, com exceção dos items "Aguardar 10 segundos de movimento para emitir som, enviar 
+                    mensagem e gravar vídeo" e "gravar em mais arquivos diferentes", todos os outros foram atendidos com exito.</p>
+                <p>Essa falta de capacidade de implementação das ideias propostas se deve por alguns motivos, dentre eles: o fato do único tempo disponível para programação e teste do 
+                    algoritmo ser laboratório, já que havia necessidade da utilização de webcam e do sistema linux, que não foi passível de reprodução nos computadores pessoais; A limitação 
+                    do OpenCV como uma ferramenta exclusivamente visual e que não opera muito bem com funções operando em paralelo (como no caso da emissão de som, que congelava o resto da 
+                    execução do programa e que necessitou de uma biblioteca específica para contornar o problema). Com um tempo maior de planejamento e com mais integrantes, talvez fosse possível 
+                    cumprir com todas as funcionalidades propostas e talvez implementar mais algumas. Mesmo assim, o resultado foi satisfatório e atendeu às exigências.</p>
+                
 
             <h4>Lista dos arquivos</h4>
+                <p>Todos os arquivos se encontram neste <a href="https://drive.google.com/drive/folders/1gSzY6_htYngY36g-B1tkQqJxUJ41oLyL?usp=drive_link">Link do drive com os arquivos</a>.</p>
                 <ul>
                     <li>Enviador.py</li>
                     <li>tempo_real_V4.py</li>
                     <li>soundfile.ogg</li>
                 </ul>
-                <p>Todos os arquivos se encontram neste <a href="https://drive.google.com/drive/folders/1gSzY6_htYngY36g-B1tkQqJxUJ41oLyL?usp=drive_link">Link do drive com os arquivos</a>.</p>
-                
+
             <h4>Análise dos Resultados do Teste de Campo TCS</h4>
-                <p>Para realização da análise, foram criados os testes presentes no capítulo de aplicação do SPV, onde, a partir deles, foi criada a AQA, como consta nos anexos.</p>
-                <p>A partir da AQA, os alunos que realizaram ela foram avaliados a partir das respostas em cada pergunta.</p>
+                <p>Para realização da análise, foram criados os testes presentes no capítulo de aplicação do SPV, onde, a partir deles, foi criada a AQA, como consta no anexo 6. A finalidade dos 
+                    testes e das perguntas é de verificar se os participantes compreenderam todas as funcionalidades e limitações do programa, a fim de compreender também sua aplicabilidade e sugerir 
+                    melhorias.
+                </p>
+                <p>No formulário, os participantes foram avaliados conforme suas respostas. Foram seis perguntas no total, sendo que as três últimas tinham mais peso que as primeiras, e a última com 
+                    o maior peso de todas por verificar se o participante compreendeu a limitação do programa com relação à conversão do filtro equalizador para uma saída mp4.</p>
+
+                <p>O teste 1 (teste de som) tem como objetivo verificar se o participante foi capaz de perceber o som e quando ele ocorre (o que ativa-o).</p>
+
+                <p>Os teste 2 e 3 (período diurno e noturno) têm como objetivo verificar se ele compreendeu o funcionamento dos filtros e das saídas, do motivo da escolha dos filtros para cada período e de 
+                    sua aplicação na prática.
+                </p>
+
+                <p>O teste 4 (recebimento de e-mail) tem como objetivo verificar se ele compreendeu como funciona o código por trás do envio do e-mail e sobre como customizá-lo.</p>
+
+                <p>O teste 5 (Troca de filtro diurno) tem como objetivo verificar se ele compreendeu o motivo da utilização da detecção de cores no projeto e sobre como realizar essa 
+                    troca de filtros.
+                </p>
+
+                <p>O teste 6 (registro em vídeo) tem como objetivo verificar se ele compreendeu as limitações da gravação de vídeo do OpenCV, uma vez que a saída diurna filtrada não é 
+                    convertida pelo programa em MP4.
+                </p>
+
+                <p>Através do anexo 7, é possível notar que nem todos os alunos participaram do teste do programa, é possível notar também que apenas um deles compreendeu completamente 
+                    as funcionalidades dele. Isso pode ter sido causado tanto por um problema de comunicação durante a explicação do projeto, confusão com relação ao quê as perguntas se 
+                    referiam, ou até desisteresse. A média final dos participantes foi de 8,6, o que pode ser considerado um índice bom.
+                </p>
 
         <h3>Conclusões</h3>
+            <p>Concluindo, com esse projeto foi possível explorar muito mais as possibilidades do OpenCV e do processamento de vídeo através de uma aplicação prática realizada pelo 
+                grupo e através de todos os outros projetos realizados pelos outros alunos, também muito criativos e interessantes. Através da enquete do anexo 8, foi possível notar que todos 
+                gostaram deste projeto e, dentre as críticas, se destacam a utilidade do projeto e a possibilidade de diminuir a área de detecção do detector de movimentos para disparar o alarme 
+                apenas para movimentos mais expressivos, o que foi aplicado modificando a linha 67 na segunda imagem do anexo 3. Esse projeto foi de grande ajuda para entendermos melhor a funcionalidade 
+                do processamento de vídeo e também a entender como muito dos serviços que temos hoje funciona, sendo uma grande experiência.
+            </p>
 
         <h3>Referências Bibliográficas</h3>
             <ul>
@@ -185,15 +231,15 @@
             <p><strong>Anexo 4 - Script do programa que envia e-mails</strong></p>
             <img class="teste2" src="assets/img/trab/email.png" alt="">
             <p><strong>Anexo 5 - Vídeo de demonstração do programa</strong></p>
-            <video controls class="video2" loop><source src="assets/videos/teste_programa.mp4" type="video/mp4"></video>
+            <video controls class="video2" loop><source src="assets/videos/demo.mp4" type="video/mp4"></video>
             <p><strong>Anexo 6 - AQA</strong></p>
             <img class="teste2" src="assets/img/final/aqa1.png" alt="">
             <img class="teste2" src="assets/img/final/aqa2.png" alt="">
-            <p><strong>Anexo 6 - Avaliação do AQA</strong></p>
+            <p><strong>Anexo 7 - Avaliação do AQA</strong></p>
             <img class="teste2" src="assets/img/final/notas.png" alt="">
-            <p><strong>Anexo 7 - Enquete</strong></p>
+            <p><strong>Anexo 8 - Enquete</strong></p>
             <img class="teste2" src="assets/img/final/enquete.png" alt="">
-            <p><strong>Anexo 6 - Respostas da enquete</strong></p>
+            <p><strong>Anexo 9 - Respostas da enquete</strong></p>
             <img class="teste2" src="assets/img/final/respenquete.png" alt="">
 
     </main>
